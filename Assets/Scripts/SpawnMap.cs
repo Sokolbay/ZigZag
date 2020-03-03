@@ -8,6 +8,7 @@ public class SpawnMap : MonoBehaviour
     [SerializeField] GameObject cube, crystal;
     Vector3 nextPoint;
     float randomSide, randomCrystal;
+    bool spawn = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,9 +22,10 @@ public class SpawnMap : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && spawn == false)
         {
             InvokeRepeating("SpawnCubesEverySecond", 0, 0.25f);
+            spawn = true;
         }
 
     }
